@@ -16,7 +16,7 @@
 
 <h2><u> Question : </u></h2>
 <div align="justify">
-    <p> Ce résultat est-il statistiquement significatif , <em>i.e</em> la différence constatée entre les deux versions est-elle uniquement due à la nouvelle fonctionnalité ?</p>
+    <p> Ce résultat est-il statistiquement significatif , <em>i.e</em> la différence constatée entre les deux versions est-elle <strong>uniquement</strong> due à la nouvelle fonctionnalité ?</p>
 </div>
 
 ----------------------
@@ -25,7 +25,7 @@
 <div align="justify">
     <p> Un test A/B est un type de test permettant de comparer l'efficacité de deux versions d'un même site quant à la réalisation d'un objectif (ici augmenter le taux de conversion). Dans notre cas nous avons nos deux versions du site : la version <strong>A</strong> (originale) et la version <strong>B</strong> (implémentant la nouvelle fonctionnalité). </p>
     <p> Lors d'un A/B test il faut <strong> absolument </strong> comparer les deux candidats sur la même base, <em>i.e</em> les deux versions doivent être soumises au test dans les <strong> mêmes </strong> conditions.</p>
-    <p> Nos résultats montrent que le test B a de meilleurs résultats que le test A, néanmoins une éventuelle conclusion quant à son efficacité ne doit pas être trop hâtive, cela peut être dû à différents facteurs, notamment le hasard. Il faut par conséquent prouver que ces résultats sont <strong> statistiquement significatifs</strong>.</p>
+    <p> Nos résultats montrent que le test B a de meilleurs résultats que le test A, néanmoins on ne sait pas si c'est essentiellement lié à la nouvelle fonctionnalité, cela peut être dû à différents facteurs, notamment le <strong>hasard</strong>. Il faut par conséquent prouver que ces résultats sont <strong> statistiquement significatifs</strong>.</p>
 </div>
 
 --------
@@ -33,8 +33,8 @@
 <h2> Étude statistique : </h2>
 <div align="justify">
     <p> Comme évoqué précédemment, nous allons <strong>modéliser</strong> le mois d'essai en utilisant cette fois les statistiques de manière à confirmer ou non la pertinence des résultats obtenus. Cette méthode est essentielle car elle permettra de fournir un résultat général (en augmentant le nombre de sessions par exemple) que nous comparerons ensuite avec le résultat réel. </p>
-    <p> Pour se faire nous avons besoin de créer un modèle statistique qui soit le plus proche de la réalité. Nous avons dans le cas présent, des internautes qui visitent le site et demandent un devis avec un probabilité d'approximativement <strong>7%</strong>.</p>
-    <p> La <strong>loi binomiale</strong> est une modélisation mathématique se rapprochant de la réalité dans notre cas. Effectivement, celle ci représente le <strong>nombre de succès</strong> (ici demande d'un devis) que l'on obtient en réalisant des expériences <strong>identiques, aléatoires et indépendantes</strong> entre elles. Nous ferons donc l'hypothèse que chaque internaute visitant le site est indépendant des autres internautes (cela signifie que chaque utilisateur visite le site de sa propre initiative, personne ne l'a influencé à faire cela). De plus, le site étant identique pour chaque individu, les expériences utilisateurs seront donc identiques entre elles, et aléatoires car l'on ne sait pas <em> à priori </em> si l'utilisateur demandera un devis.</p>
+    <p> Pour se faire nous avons besoin de créer un modèle statistique qui soit le plus proche de la réalité. Nous avons dans le cas présent, des internautes qui visitent le site et demandent un devis avec une probabilité d'approximativement <strong>7%</strong>.</p>
+    <p> La <strong>loi binomiale</strong> est une modélisation mathématique se rapprochant de la réalité dans notre cas. Effectivement, celle-ci représente le <strong>nombre de succès</strong> (ici demande d'un devis) que l'on obtient en réalisant des expériences <strong>identiques, aléatoires et indépendantes</strong> entre elles. Nous ferons donc l'hypothèse que chaque internaute visitant le site est indépendant des autres internautes (cela signifie que chaque utilisateur visite le site de sa propre initiative, personne ne l'a influencé à faire cela). Nous supposerons qu'1 utilisateur = 1 session. De plus, le site étant identique pour chaque individu, les expériences utilisateurs seront donc identiques entre elles, et aléatoires car l'on ne sait pas <em> à priori </em> si l'utilisateur demandera un devis.</p>
 
 
 <h3><u> Première modélisation :</u> <br /></h3> 
@@ -63,7 +63,7 @@ somme = 0
 
 for i in range(5):
     resultat = simulation_np(5000,0.07)
-    somme += result
+    somme += resultat
     print("%(result)d conversions parmis 5000 sessions" %{"result" : resultat})
 
 #Calcul de la moyenne de nos 5 expériences
@@ -73,13 +73,13 @@ print("\nLa moyenne du nombre de conversions pour nos 5 expériences est de %(mo
 
     Résultats de 5 simulations : 
     
-    362 conversions parmis 5000 sessions
-    349 conversions parmis 5000 sessions
+    358 conversions parmis 5000 sessions
+    347 conversions parmis 5000 sessions
     339 conversions parmis 5000 sessions
-    374 conversions parmis 5000 sessions
-    345 conversions parmis 5000 sessions
+    337 conversions parmis 5000 sessions
+    367 conversions parmis 5000 sessions
     
-    La moyenne du nombre de conversions pour nos 5 expériences est de 353 conversions
+    La moyenne du nombre de conversions pour nos 5 expériences est de 349 conversions
 
 
 ----------
@@ -95,25 +95,25 @@ for value in values_ :
     print("%(result)d conversions parmis 5000 sessions" %{"result" : value})
 
 #Moyenne de nos 5 expériences
-print("\nLa moyenne du nombre de conversions pour nos 5 expériences est de %(moyenne)f conversions" %{"moyenne":np.mean(values)}) 
+print("\nLa moyenne du nombre de conversions pour nos 5 expériences est de %(moyenne)f conversions" %{"moyenne":np.mean(values_)}) 
 ```
 
     Résultats de 5 simulations : 
     
-    368 conversions parmis 5000 sessions
-    347 conversions parmis 5000 sessions
-    342 conversions parmis 5000 sessions
-    359 conversions parmis 5000 sessions
-    346 conversions parmis 5000 sessions
+    360 conversions parmis 5000 sessions
+    336 conversions parmis 5000 sessions
+    338 conversions parmis 5000 sessions
+    340 conversions parmis 5000 sessions
+    343 conversions parmis 5000 sessions
     
-    La moyenne du nombre de conversions pour nos 5 expériences est de 342.800000 conversions
+    La moyenne du nombre de conversions pour nos 5 expériences est de 343.400000 conversions
 
 
 -------
 
 <div align="justify">
     <p> Nous voyons donc que le nombre de conversions varie d'une expérience à l'autre. </p>
-    <p> Évidemment la moyenne que nous avons calculée n'est pas très pertinente car le nombre d'expériences réalisées n'est pas suffisamment grand. Ce résultat n'est donc pas <strong>statistiquement significatif</strong> ! </p>
+    <p> Évidemment la moyenne que nous avons calculé n'est pas très pertinente car le nombre d'expériences réalisées n'est pas suffisamment grand. Ce résultat n'est donc pas <strong>statistiquement significatif</strong> ! </p>
     <p> Réalisons donc <strong>10 000 fois</strong> cette expérience plutôt que 5 fois et voyons ce que ça nous donne ! </p><br />
 </div>
 <p><strong> Représentation de la loi Binomiale pour 10 000 expériences : </strong></p>
@@ -123,14 +123,14 @@ print("\nLa moyenne du nombre de conversions pour nos 5 expériences est de %(mo
 import math
 import scipy.stats
 
-#Enregistrement de nos nombres de conversions pour nos 10000 expériences
-#Le troisième paramètre de random.binomial() spécifie le nombre d'expériences que nous voulons réaliser, ici 10000
+#Enregistrement de nos nombres de conversions pour nos 10 000 expériences
+#Le troisième paramètre de random.binomial() spécifie le nombre d'expériences que nous voulons réaliser, ici 10 000
 valeurs = np.random.binomial(5000,0.07, 10000) 
 
-#Calcul de la moyenne pour nos 10000 expériences
+#Calcul de la moyenne pour nos 10 000 expériences
 moyenne = np.mean(valeurs) 
 
-#Calcul de la variance pour nos 10000 expériences
+#Calcul de la variance pour nos 10 000 expériences
 variance = np.var(valeurs)
 
 #Calcul le nombre de valeurs de conversions différentes lors de la réalisation de nos 10000 expériences
@@ -139,7 +139,7 @@ nb_unique_valeurs= len(set(valeurs))
 #Représentons désormais l'histogramme de nos valeurs enregistrées
 #L'axe des ordonnées de notre histogramme sera normalisé, ie les valeurs prises seront entre 0 et 1
 count, bins, ignored = plt.hist(valeurs, bins = nb_unique_valeurs, normed = 1, label='histogramme')
-plt.title("Distribution de notre loi binomial, avec n = 5000 et p = 0.07, pour 10 000 réalisations")
+plt.title("Distribution de notre loi binomial, avec n = 5 000 et p = 0.07, pour 10 000 réalisations")
 plt.xlabel("Nombre de conversions")
 plt.ylabel("Nombre d'occurences normalisé entre 0 et 1")
 
@@ -155,8 +155,8 @@ print("La variance de notre distribution est de : %(variance)f" %{"variance" : v
 #Calcul de l'espérance de notre loi binomiale précédente : mu = n * p
 mu = 5000 * 0.07
 
-#Calcul de l'écart type de notre loi binomiale précédente : sigma = sqrt(variance) = sqrt(n*p*(1-p))
-sigma = math.sqrt(5000 * 0.07 * (1-0.07))
+#Calcul de l'écart-type de notre loi binomiale précédente : sigma = sqrt(variance) = sqrt(n*p*(1-p))
+sigma = math.sqrt(mu* (1-0.07))
 
 plt.plot(bins, 1/(sigma * np.sqrt(2 * np.pi)) * np.exp( - (bins - mu)**2 / (2 * sigma**2) ), linewidth=1, color='r', label='densite de probabilite loi normale')
 plt.axvline(x=375,color='g',label='seuil de significativité', linewidth = 1)
@@ -168,8 +168,8 @@ print("Écart-type de la loi normale : %(sigma)f " %{"sigma" : sigma})
 ```
 
     
-    La moyenne du nombre de conversions pour nos 10 000 expériences est de : 349.987100 conversions
-    La variance de notre distribution est de : 320.024134
+    La moyenne du nombre de conversions pour nos 10 000 expériences est de : 350.318600 conversions
+    La variance de notre distribution est de : 321.819894
 
 
 
@@ -231,14 +231,18 @@ resultat = 1 - proba
 print("La probabilité de trouver un nombre de conversions supérieur ou égal à 375 vaut : %(resultat)f" %{"resultat" : resultat})
 print("Nous avons donc %(pourcentage)f%%  de chance d'obtenir un nombre de conversions supérieur ou égal à 375 !" %{"pourcentage" : resultat*100})
 
+#On aurait pu calculer ce résultat directement grâce à la fonction scipy.stats.norm.sf()
+print("\nProbabilité obtenue par calcul direct : %(proba)f" %{"proba" : scipy.stats.norm.sf(374,mu,sigma)})
 ```
 
     La probabilité de trouver un nombre de conversions supérieur ou égal à 375 vaut : 0.091717
     Nous avons donc 9.171671%  de chance d'obtenir un nombre de conversions supérieur ou égal à 375 !
+    
+    Probabilité obtenue par calcul direct : 0.091717
 
 
 <p><strong> Pourquoi avoir calculé cette probabilité ? </strong></p>
-<p> Nous avons calculé cette probabilité car un taux de conversion est considéré comme étant <strong>anormalement élevé</strong>, <em>ie</em> que la différence entre les deux versions n'est pas due au hasard mais bien à l'efficacité de la nouvelle version, lorsque la probabilité précédemment calculée est inférieure à <strong>5%</strong>. Ainsi dans notre exemple de modélisation (5000 sessions, taux moyen de 7%), le taux n'est pas anormalement élevé (9% > 5%).</p>
+<p> Nous avons calculé cette probabilité car un taux de conversion est considéré comme étant <strong>anormalement élevé</strong>, <em>i.e</em> que la différence entre les deux versions n'est pas due au hasard mais bien à l'efficacité de la nouvelle fonctionnalité, lorsque la probabilité précédemment calculée est inférieure à <strong>5%</strong>. Ainsi dans notre exemple de modélisation (5000 sessions, taux moyen de 7%), le taux n'est <strong>pas</strong> anormalement élevé (9% > 5%).</p>
 
 --------
 
@@ -246,7 +250,7 @@ print("Nous avons donc %(pourcentage)f%%  de chance d'obtenir un nombre de conve
 <div align="justify">
     <p> <strong> Hypothèses </strong> : </p>
     <ul>
-        <li> La page possède <strong>10000 sessions</strong> (10000 utilisateurs indépendants).</li>
+        <li> La page possède <strong>10 000 sessions</strong> (10 000 utilisateurs indépendants).</li>
         <li> Le taux de conversion moyen du site est de <strong>7%.</strong> </li>
     </ul><br />
     <p><strong> Réitérons les étapes précédentes pour obtenir la probabilité d'avoir un nombre de conversions supérieur ou égal à 750 :</strong></p>
@@ -256,7 +260,7 @@ print("Nous avons donc %(pourcentage)f%%  de chance d'obtenir un nombre de conve
 
 
 ```python
-#On génère les nombres de conversions obtenus lors de nos 10000 essais
+#On génère les nombres de conversions obtenus lors de nos 10 000 essais
 valeurs2 = np.random.binomial(10000,0.07,10000)
 
 #On récupère la moyenne, variance, nombre de valeurs différentes
@@ -283,7 +287,7 @@ print("La variance de notre distribution est de : %(variance)f" %{"variance" : v
 mu2 = 10000 * 0.07
 
 #Calcul de l'écart type de notre loi binomiale précédente : sigma = sqrt(variance) = sqrt(n*p*(1-p))
-sigma2 = math.sqrt(10000 * 0.07 * (1-0.07))
+sigma2 = math.sqrt(mu2 * (1-0.07))
 
 plt.plot(bins2, 1/(sigma2 * np.sqrt(2 * np.pi)) * np.exp( - (bins2 - mu2)**2 / (2 * sigma2**2) ), linewidth=1, color='r', label='densité de probabilité loi normale')
 plt.legend()
@@ -294,8 +298,8 @@ print("Écart-type de la loi normale : %(sigma)f " %{"sigma" : sigma2})
 ```
 
     
-    La moyenne du nombre de conversions pour nos 10 000 expériences est de : 700.119700 conversions
-    La variance de notre distribution est de : 654.191572
+    La moyenne du nombre de conversions pour nos 10 000 expériences est de : 700.100800 conversions
+    La variance de notre distribution est de : 665.873839
 
 
 
@@ -343,11 +347,15 @@ print("Nous avons donc %(pourcentage)f%%  de chance d'obtenir un nombre de conve
     Nous avons donc 2.739982%  de chance d'obtenir un nombre de conversions supérieur ou égal à 750 !
 
 
+----
+
+<div align="justify">
 <p>Cette fois-ci nous avons donc une probabilité d'avoir un taux de conversion réel supérieur à 7.5% de : <strong>2.74%</strong>.</p>
 <p>Nous sommes donc <strong>sous la limite</strong> des 5% ! Ce qui signifie maintenant que nous avons un taux de conversion <strong>anormalement élevé</strong>, synonyme potentiellement de l'efficacité d'une nouvelle fonctionnalité.<br/></p>
-<p>Ce résultat illustre une <strong>notion importante</strong> ! En effet, pour une <strong>même</strong> technologie, <em>ie</em> un site détenant un taux de conversion de <strong>7%</strong>, le nombre de sessions à considérer est un <strong>facteur clé</strong> quant à la détermination de l'efficience d'une novuelle fonctionnalité. Dans notre premier cas, nous n'avions considérer que <strong>5 000 sessions</strong>, ce qui nous aurait conduit à conclure que la nouvelle fonctionnalité n'était pas efficace si nous n'avions pas essayé avec <strong>10 000 sessions</strong>. Cela aurait conduit potentiellement à une <strong>perte de chiffre d'affaire</strong> suite à une erreur d'analyse ! Il <strong>faut</strong> tenir compte du plein potentiel du site : si l'on considère 5 000 sessions alors que le site possède un nombre moyen de 10 000 sessions, alors on ne réalise pas l'étude statistique sur l'environnement réel.</p>
-<p>On pourrait alors se demander jusqu'à quel point peut-on augmenter le nombre de sessions considérées ? Selon moi, il faut considérer le nombre de sessions des <strong>années passées à la même saison</strong> (la demande varie selon les saisons) ainsi que le nombre moyen de sessions des <strong>précédents mois</strong> (pour tenir compte de l'essort du site). On choisira alors un nombre de sessions fidèle aux données récoltées précédemment.</p>
-
+<p>Ce résultat illustre une <strong>notion importante</strong> ! En effet, pour une <strong>même</strong> technologie, <em>i.e</em> un site détenant un taux de conversion de <strong>7%</strong>, le nombre de sessions à considérer est un <strong>facteur clé</strong> quant à la détermination de l'efficience d'une nouvelle fonctionnalité. Dans notre premier cas, nous n'avions considéré que <strong>5 000 sessions</strong>, ce qui nous aurait conduit à conclure que la nouvelle fonctionnalité n'était pas efficace si nous n'avions pas essayé avec <strong>10 000 sessions</strong>. Cela aurait conduit potentiellement à une <strong>perte de chiffre d'affaire</strong> suite à une erreur d'analyse ! Il <strong>faut</strong> tenir compte du plein potentiel du site : si l'on considère 5 000 sessions alors que le site possède un nombre moyen de 10 000 sessions, alors on ne réalise pas l'étude statistique sur l'environnement réel.</p>
+<p>On pourrait alors se demander jusqu'à quel point on peut augmenter le nombre de sessions considérées ? Selon moi, il faut considérer le nombre de sessions des <strong>années passées à la même saison</strong> (la demande varie selon les saisons) ainsi que le nombre moyen de sessions des <strong>précédents mois</strong> (pour tenir compte de l'essort du site). On choisira alors un nombre de sessions fidèle aux données récoltées précédemment.<br /></p>
+<p><strong><u>Edit :</u></strong> J'ai lu diverses documentations sur les tests statistiques, et j'ai pris connaissance de la notion de <strong>"puissance statistique"</strong>. Celle-ci correspond à la probabilité de détecter une différence entre deux versions sachant que cette différence existe vraiment. On cherche donc naturellement à avoir une <strong>forte</strong> puissance statistique (généralement supérieure à <strong>0.8</strong>). Ainsi, si notre puissance statistique est trop faible, on augmente le risque de <strong>ne pas détecter</strong> de différence entre 2 versions alors qu'il en existe une ! Or, parmis les facteurs influençant la puissance statistique, se trouve la <strong>taille de l'échantillon</strong> que l'on considère dans notre étude (ici le nombre de sessions). On comprend donc pourquoi, avec 5 000 sessions on ne trouvait pas le même résultat qu'avec 10 000 sessions (notre puissance était <strong>trop faible</strong>). Pour en revenir à la question de la taille d'échantillon, il est possible de calculer via une formule connue, le <strong>nombre minimum</strong> d'échantillons pour garantir une puissance donnée (0.8 par exemple).</p>
+</div>
 
 ----
 
@@ -369,75 +377,102 @@ plt.show()
 ```
 
 
-![png](output_33_0.png)
+![png](output_34_0.png)
 
 
 ----
 
 <h3> Réponse à la question initiale :</h3>
-<p> On va calculer la probabilité d'avoir un taux de conversions anormalement élevé</p>
+<p> On se place sous hypothèse nulle, <em>i.e</em> dans le cas de la version A, et nous allons calculer la probabilité d'obtenir un taux de conversion supérieur ou égal au taux moyen obtenu sur la version B qui est de <strong>6.5%</strong>(soit 260 conversions).</p>
+<p> 1) Commençons comme toujours par simuler l'expérience réalisée sur la version A par une loi binomiale de paramètre n = 4 000 et p = 0.05.</p>
+<p> 2) Représentons alors cette distribution via un <strong>histogramme</strong>, sur lequel on représente l'allure de la <strong>densité de probabilité</strong> de la loi normale correspondante. Le <strong>seuil</strong> de significativité statistique a lui aussi été déssiné en vert sur le graphe.</p>
 
 
 ```python
-#Considérons qu'on réalise 10 000fois l'expérience avec 4 000 utilisateurs et un taux de conversion moyen de 6.5% (cas version B)
+#Considérons qu'on réalise 10 000 fois l'expérience avec 4 000 utilisateurs et un taux de conversion moyen de 6.5% (cas version B)
 #Calculons les valeurs clés du problème
-valeurs3 = np.random.binomial(4000,0.065,10000)
+valeurs3 = np.random.binomial(4000,0.05,10000)
 moyenne3 = np.mean(valeurs3)
 variance3 = np.var(valeurs3)
 nb_unique_valeurs3 = len(set(valeurs3))
 
-mu3 = 4000 * 0.065
-sigma3 = math.sqrt(mu3*(1-0.065))
+mu3 = 4000 * 0.05
+sigma3 = math.sqrt(mu3*(1-0.05))
 
 #Traçons l'histogramme et la densité de probabilité de la loi normale correspondante
 count3, bins3, ignored3 = plt.hist(valeurs3, bins = nb_unique_valeurs3, normed = 1, label="histogramme")
 plt.plot(bins3, 1/(sigma3 * np.sqrt(2 * np.pi)) * np.exp( - (bins3 - mu3)**2 / (2 * sigma3**2) ), linewidth=1, color='r', label='densité de probabilité loi normale')
-plt.axvline(x=300, color='g', label='seuil de significativité', linewidth=1)
-plt.title("Distribution de notre loi binomiale, avec n = 4 000 et p = 0.065, pour 10 000 réalisations")
+plt.axvline(x=260, color='g', label='seuil de significativité', linewidth=1)
+plt.title("Distribution de notre loi binomiale, avec n = 4 000 et p = 0.05, pour 10 000 réalisations")
 plt.xlabel("Nombre de conversions")
 plt.ylabel("Nombre d'occurences normalisé entre 0 et 1")
 plt.legend()
 plt.show()
 
-print("\nEspérance de la loi binomiale : %(esp)f" %{"esp" : mu3})
+print("\nMoyenne de la loi normale : %(esp)f" %{"esp" : mu3})
 print("Écart-type de la loi normale : %(sigma)f " %{"sigma" : sigma3})
 ```
 
 
-![png](output_36_0.png)
+![png](output_37_0.png)
 
 
     
-    Espérance de la loi binomiale : 260.000000
-    Écart-type de la loi normale : 15.591664 
+    Moyenne de la loi normale : 200.000000
+    Écart-type de la loi normale : 13.784049 
 
 
-<p>On cherche désormais : </p>
+<p><strong>3) On cherche à caculer la probabilité suivante :</strong> </p>
 \begin{equation*}
-P(X\geq 300) = 1 - P(X\leq 299)
+P(X\geq 260) = 1 - P(X\leq 259)
 \end{equation*}
 <p> avec : </p> 
 \begin{equation*}
-P(X \leq 299) = \int_{-\infty}^{299} \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{1}{2}(\frac{x-m}{\sigma})^2) \, \mathrm{d}x \
+P(X \leq 259) = \int_{-\infty}^{259} \frac{1}{\sqrt{2\pi}\sigma}exp(-\frac{1}{2}(\frac{x-m}{\sigma})^2) \, \mathrm{d}x \
 \end{equation*}
 
 
 ```python
-#La probabilité que X<=299
-proba3 = scipy.stats.norm.cdf(299,mu3,sigma3)
-
-#Nous trouvons ensuite la valeur désire 1 - P(X<=299)
-resultat3 = 1 - proba3
-print("La probabilité de trouver un nombre de conversions supérieur ou égal à 300 vaut : %(resultat)f" %{"resultat" : resultat3})
-print("Nous avons donc %(pourcentage)f%%  de chance d'obtenir un nombre de conversions supérieur ou égal à 300 !" %{"pourcentage" : resultat3*100})
+print("Avec la version A du site, nous avons %(pourcentage)f%%  de chance d'obtenir un nombre de conversions supérieur ou égal à 260 !" %{"pourcentage" : scipy.stats.norm.sf(259,mu3,sigma3)})
 
 
 
 ```
 
-    La probabilité de trouver un nombre de conversions supérieur ou égal à 300 vaut : 0.006186
-    Nous avons donc 0.618628%  de chance d'obtenir un nombre de conversions supérieur ou égal à 300 !
+    Avec la version A du site, nous avons 0.000009%  de chance d'obtenir un nombre de conversions supérieur ou égal à 260 !
 
 
-<p>Ainsi, selon la règle de décision vue précédemment, nous pouvons affirmer après analyses statistiques que la différence visible entre les deux versions est <strong>statistiquement significative</strong> !</p> 
-<p>La nouvelle version apporte donc un <strong>gain</strong> quant au taux de conversion par rapport à la version originale. Il serait donc judicieux d'implémenter cette nouvelle fonctionnalité sur le site officiel.</p>
+<p>La probabilité calculée est alors <strong>très inférieure</strong> à la limite de 5%. Ceci était d'ailleurs prévisible en observant le placement du seuil de significativité statistique sur notre histogramme.</p>
+
+<p>Il est important de noter qu'en cas de taille d'échantillonage trop faible, nous pouvons être en situation d'une importante dose de faux-positifs, <em>i.e</em> nous allons conclure que le site B est plus efficace que le site A alors que ce n'est pas le cas.</p> 
+<p>Par précaution, réalisons donc la même procédure mais avec des sessions de 8 000 (8 000 utilisateurs est une donnée plausible quant à la fréquentation du site, car si il n'y avait qu'une seule version du site, alors on aurait eu 4000 + 4000 utilisateurs).</p>
+
+
+```python
+#Calculs directs sans graphique
+valeurs4 = np.random.binomial(8000,0.05,10000)
+mu4 = 8000*0.05
+sigma4 = math.sqrt(mu4 * (1-0.05))
+
+#Cette fois nous cherchons P(X >= 520) car un taux de 6.5% pour 8000 sessions donne 520 conversions 
+proba4 = scipy.stats.norm.sf(519,mu4,sigma4)
+print("Dans la version A du site, avec 8 000 sessions, nous avons %(proba)f%% de chance d'obtenir un nombre de sessions supérieur ou égal à 520." %{"proba" : proba4 * 100})
+
+```
+
+    Dans la version A du site, avec 8 000 sessions, nous avons 0.000000% de chance d'obtenir un nombre de sessions supérieur ou égal à 520
+
+
+<p>Le résultat précédent confirme alors notre l'hypothèse selon laquelle <strong>la version B est plus efficace que la version A et ce essentiellement grâce à la nouvelle fonctionnalité</strong>.</p>
+<p><strong><u>NB :</u></strong> Néanmoins, je n'ai pas ici calculé la puissance statistique de notre modèle car je ne suis pas sûr de la méthode à employer. Or c'est un facteur essentiel quant à la conclusion du problème. Ainsi, si la puissance de notre modèle est supérieur à 0.8 alors notre conclusion est définitivement vraie. Dans le cas contraire, la conclusion a de grandes chances d'être fausse...</p>
+
+----
+
+<h3><u> Question subsidiaire :</u></h3>
+<p><strong> Plutôt que de mettre en ligne les deux versions en même temps, un membre de l'équipe propose de mettre d'abord en ligne la version A, puis de mettre en ligne la version B. Qu'en pensez-vous?</strong></p>
+
+<div align="justify">
+<p> Comme mentionné dans l'introduction, lors de la réalisation d'un test A/B, les deux versions doivent absolument être soumises aux <strong>mêmes conditions </strong> (même environnement, <em>i.e</em> toutes les variables extérieures à notre problème doivent être identiques). Lorsque l'on compare 2 sites en parallèle, les deux sites fonctionnent dans un <strong>même environnement </strong>: même période, les utilisateurs sont considérés indépendants entre eux, etc...</p>
+<p>Néanmoins, si l'on met en ligne le site A (1 mois par exemple) et qu'après 1 mois on mette en ligne le site B, alors on <strong>n'est pas assuré que les deux sites fonctionnent sous les mêmes conditions</strong>. Pour cela, il faudrait par exemple étudier les données des <strong>années passées</strong> pour choisir 2 mois successifs dont l'activité est relativement <strong>constante</strong> (<em>i.e</em> nombre constant de sesions par exemple). Cependant, l'un des avantages de cette méthode, est que l'on est <em>à priori</em> garanti de ne pas avoir de problème de <strong>taille d'échantillon trop faible</strong>, comme cela aurait pu se passer lors de la mise en parallèle des deux sites.</p>
+    <p>À mon idée, si l'entreprise peut garantir des <strong>conditions identiques</strong> pour les <strong>deux</strong> sites mis en ligne de manière séquentielle alors il est préférable de le faire. Dans le cas contraire, il est nécessaire de rester sur une mise en ligne parallèle.</p>
+</div>
